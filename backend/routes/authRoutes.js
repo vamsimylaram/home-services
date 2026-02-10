@@ -23,13 +23,13 @@ const {
   getMe,
 } = require("../controllers/authController");
 
-const authMiddleware = require("../middleware/authMiddleware");
+const { authenticate } = require("../middleware/authMiddleware");
 
 router.post("/register", register);
 router.post("/login", login);
 router.post("/logout", logout);
 
-router.get("/me", authMiddleware, getMe);
+router.get("/me", authenticate, getMe);
 
 module.exports = router;
 
