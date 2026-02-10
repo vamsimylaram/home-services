@@ -29,7 +29,7 @@ exports.createBooking = async (req, res) => {
     const booking = await Booking.create({
       booking_id: "booking_" + uuidv4().slice(0, 12),
 
-      customer_id: req.user.user_id,
+      user_id: req.user.user_id,
       customer_name: req.user.name,
       customer_phone: req.user.phone || null,
 
@@ -60,7 +60,7 @@ exports.getBookings = async (req, res) => {
     let query = {};
 
     if (req.user.role === "customer") {
-      query.customer_id = req.user.user_id;
+      query.user_id = req.user.user_id;
     } else if (req.user.role === "professional") {
       query.professional_id = req.user.user_id;
     }

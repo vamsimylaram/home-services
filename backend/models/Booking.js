@@ -28,7 +28,7 @@ const bookingSchema = new mongoose.Schema({
     index: true,
   },
 
-  customer_id: {
+  user_id: {
     type: String,
     index: true,
   },
