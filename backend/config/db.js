@@ -10,15 +10,15 @@ const mongoose = require("mongoose");
   }
 };*/
 
-
-
-const MONGO_URL = process.env.MONGO_URL || 'mongodb://localhost:27017';
-const DB_NAME = process.env.DB_NAME || 'test_database';
+const MONGO_URL = process.env.MONGO_URL || "mongodb+srv://aerpulamadhu18:madhu123@cluster0.0blnk4d.mongodb.net";
+const DB_NAME = process.env.DB_NAME || "all_in_one_service";
 
 const connectDB = async () => {
   try {
     const conn = await mongoose.connect(`${MONGO_URL}/${DB_NAME}`);
     console.log(`MongoDB Connected: ${conn.connection.host}`);
+    console.log(MONGO_URL);
+    console.log(DB_NAME);
     return conn;
   } catch (error) {
     console.error(`Error: ${error.message}`);
