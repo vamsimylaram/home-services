@@ -1,5 +1,5 @@
 import React from 'react';
-// import Navbar from '@/components/Navbar';
+import Navbar from '@/components/Navbar';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { Wrench, Clock, Shield, Star } from 'lucide-react';
@@ -16,7 +16,7 @@ function Home() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      {/* <Navbar transparent /> */}
+      <Navbar transparent />
       
       <section className="py-24 px-6 bg-white" data-testid="hero-section">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
