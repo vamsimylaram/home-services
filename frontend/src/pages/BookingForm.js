@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import Navbar from '@/components/Navbar';
+// import Navbar from '@/components/Navbar';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -73,7 +73,7 @@ function BookingForm({ user }) {
   if (!service) {
     return (
       <div className="min-h-screen bg-slate-50">
-        <Navbar />
+        {/* <Navbar /> */}
         <div className="flex items-center justify-center py-24">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
         </div>
@@ -83,7 +83,7 @@ function BookingForm({ user }) {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <Navbar />
+      {/* <Navbar /> */}
       
       <div className="max-w-3xl mx-auto px-6 py-12">
         <Card className="border-slate-200 shadow-lg" data-testid="booking-form-card">

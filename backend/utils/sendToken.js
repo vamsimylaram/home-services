@@ -48,9 +48,10 @@ const sendToken = (user, res) => {
   // 🔥 Keep JWT minimal
   const token = jwt.sign(
     {
-      id: user._id,
+      //id: user._id,
+      user_id: user.user_id,
       role: user.role,
-      cust_id: user.cust_id,
+      //cust_id: user.cust_id,
     },
     process.env.JWT_SECRET,
     {
@@ -71,7 +72,8 @@ const sendToken = (user, res) => {
 
   // ✅ NEVER send password_hash (already safe)
   const safeUser = {
-    id: user._id,
+    // id: user._id,
+    user_id: user.user_id, 
     cust_id: user.cust_id,
     email: user.email,
     name: user.name,
