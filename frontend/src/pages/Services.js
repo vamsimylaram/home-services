@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// import Navbar from '@/components/Navbar';
+import Navbar from '@/components/Navbar';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import axios from 'axios';
@@ -62,7 +62,7 @@ function Services() {
   if (loading) {
     return (
       <div className="min-h-screen bg-slate-50">
-        {/* <Navbar /> */}
+        <Navbar />
         <div className="flex items-center justify-center py-24">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
         </div>
@@ -72,7 +72,7 @@ function Services() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      {/* <Navbar /> */}
+      <Navbar />
       
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="mb-12">
