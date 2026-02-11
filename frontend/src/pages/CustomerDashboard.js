@@ -65,7 +65,7 @@ function CustomerDashboard({ user: propUser }) {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <nav className="bg-white border-b border-slate-200">
+      {/* <nav className="bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-2" data-testid="home-link">
             <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
@@ -84,7 +84,7 @@ function CustomerDashboard({ user: propUser }) {
             </Button>
           </div>
         </div>
-      </nav>
+      </nav> */}
 
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="mb-8">

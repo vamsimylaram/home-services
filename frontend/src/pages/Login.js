@@ -6,6 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowLeft } from 'lucide-react';
 import axios from 'axios';
+import { useAuth } from "@/context/AuthContext";
 import { toast } from 'sonner';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -15,6 +16,7 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const { setUser } = useAuth();
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -27,19 +29,27 @@ function Login() {
         password
       }, { withCredentials: true });
 
-      const { user, token } = response.data;
+      const user = response.data.user;
+      setUser(user);
       
-      document.cookie = `session_token=${token}; path=/; max-age=${30 * 24 * 60 * 60}; secure; samesite=none`;
+      // document.cookie = `session_token=${token}; path=/; max-age=${30 * 24 * 60 * 60}; secure; samesite=none`;
       
       toast.success(`Welcome back, ${user.name}!`);
 
-      if (user.role === 'customer') {
-        navigate('/dashboard/customer', { state: { user } });
-      } else if (user.role === 'professional') {
-        navigate('/dashboard/professional', { state: { user } });
-      } else if (user.role === 'admin') {
-        navigate('/dashboard/admin', { state: { user } });
-      }
+      const roleRoute = {
+        customer: "/dashboard/customer",
+        professional: "/dashboard/professional",
+        admin: "/dashboard/admin"
+      };
+      navigate(roleRoute[user.role]);
+
+      // if (user.role === 'customer') {
+      //   navigate('/dashboard/customer', { state: { user } });
+      // } else if (user.role === 'professional') {
+      //   navigate('/dashboard/professional', { state: { user } });
+      // } else if (user.role === 'admin') {
+      //   navigate('/dashboard/admin', { state: { user } });
+      // }
     } catch (error) {
       toast.error(error.response?.data?.detail || 'Login failed');
     } finally {

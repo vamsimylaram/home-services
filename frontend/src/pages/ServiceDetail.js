@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import Navbar from '@/components/Navbar';
+// import Navbar from '@/components/Navbar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import axios from 'axios';
@@ -33,7 +33,7 @@ function ServiceDetail() {
   if (loading) {
     return (
       <div className="min-h-screen bg-slate-50">
-        <Navbar />
+        {/* <Navbar /> */}
         <div className="flex items-center justify-center py-24">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
         </div>
@@ -44,7 +44,7 @@ function ServiceDetail() {
   if (!service) {
     return (
       <div className="min-h-screen bg-slate-50">
-        <Navbar />
+        {/* <Navbar /> */}
         <div className="max-w-4xl mx-auto px-6 py-12">
           <p className="text-center text-slate-600">Service not found</p>
         </div>
@@ -54,7 +54,7 @@ function ServiceDetail() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <Navbar />
+      {/* <Navbar /> */}
       
       <div className="max-w-5xl mx-auto px-6 py-12">
         <Link to="/services" className="inline-flex items-center text-blue-600 hover:underline mb-6" data-testid="back-to-services">
